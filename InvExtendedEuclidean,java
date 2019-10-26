@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.Scanner;
+public class InvExtendedEuclidean {
+    public static int Inverse(int a,int b) {
+		int q,r1=b,r2=a,r,t1=0,t2=1,t;
+		while(true) {
+			q=r1/r2;
+			r=r1%r2;
+			t=t1-(q*t2);
+			r1=r2;
+			r2=r;
+			t1=t2;
+			t2=t;
+			if(r2==0) {
+				break;
+			}
+		}
+			if(r1!=1) {
+			System.out.println("Since GCD of "+a+" and "+b+" is " +r1);
+				return -1;
+			}
+			t1%=b;
+			if(t1<0) {
+				t1+=b;
+			}
+			return t1;
+	}
+	
+	public static void main(String args[]) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a value for which you want to find the Inverse");
+		int a=s.nextInt();
+                       System.out.println("Enter another value mod of which you will find the inverse of                                                    
+                        previous number”);
+		int b=s.nextInt();
+		int inv=Inverse(a,b);
+		int x = 1, y = 1; 
+		if(inv==-1){
+			System.out.println("Inverse does not exists");	
+			
+			 
+                        }
+		else
+			System.out.println(inv);
+	}
+}
